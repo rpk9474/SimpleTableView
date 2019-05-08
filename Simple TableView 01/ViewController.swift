@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var myTableView: UITableView!
     var animals = ["Cat", "Horse", "Pig", "Whale", "Dog", "Bird"]
     var year = ["3", "5", "2", "6", "8", "2"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +21,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // Delegate 객체와 ViewController의 연결
         myTableView.dataSource = self
+        myTableView.delegate = self
     }
 
+    
     // UITableViewDataSource Delegate 메소드
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return animals.count
     }
-
+    
+    
     // cell 생성, 메모리 풀(cell identifier)을 검사하여
     // 있으면 재활용
     // 없으면 새로 생성
@@ -40,14 +44,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         myCell.textLabel?.text = animals[myRow]
         // myCell.detailTextLabel?.text = year[myRow]
         myCell.detailTextLabel?.text = "section = \(mySection) row = \(myRow)"
+        
+        // cell에 image 삽입
+        myCell.imageView?.image = UIImage(named: animals[myRow])
         return myCell
     }
 
+    
     public func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
+        return 1
     } // Default is 1 if not implemented
 
+    
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0 {
@@ -56,7 +65,8 @@ class ViewController: UIViewController, UITableViewDataSource {
             return "section header \(section)"
         }
     } // fixed font style. use custom view (UILabel) if you want something different
-
+    
+    
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
         if section == 0 {
@@ -66,6 +76,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
 
+    
+    // UITableViewDelegate 메소드
+    // cell 크기 조절
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 100.0
+    }
+
+    
     
 }
 
