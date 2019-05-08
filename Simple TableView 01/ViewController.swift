@@ -36,12 +36,36 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         let myCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let myRow = indexPath.row
+        let mySection = indexPath.section
         myCell.textLabel?.text = animals[myRow]
-        myCell.detailTextLabel?.text = year[myRow]
+        // myCell.detailTextLabel?.text = year[myRow]
+        myCell.detailTextLabel?.text = "section = \(mySection) row = \(myRow)"
         return myCell
     }
 
-    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 2
+    } // Default is 1 if not implemented
 
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 0 {
+            return "section header \(section)"
+        } else {
+            return "section header \(section)"
+        }
+    } // fixed font style. use custom view (UILabel) if you want something different
+
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        if section == 0 {
+            return "section footer \(section)"
+        } else {
+            return "section footer \(section)"
+        }
+    }
+
+    
 }
 
