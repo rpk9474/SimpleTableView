@@ -51,6 +51,7 @@ class myTableViewController: UITableViewController {
                 return cell
             default :
                 fatalError()
+        }
  
         /*
             if indexPath.row == 0 {
@@ -67,7 +68,6 @@ class myTableViewController: UITableViewController {
                 fatalError()
             }
          */
-        }
         
         
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
