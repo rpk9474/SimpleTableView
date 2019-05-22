@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var myTableView: UITableView!
-    var animals = ["Cat", "Horse", "Pig", "Whale", "Dog", "Bird"]
-    var year = ["3", "5", "2", "6", "8", "2"]
+    var animals = ["Cat", "Horse", "Pig", "Dog", "Bird"]
+    var year = ["3", "5", "2", "6", "2"]
     
     
     override func viewDidLoad() {
@@ -22,6 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Delegate 객체와 ViewController의 연결
         myTableView.dataSource = self
         myTableView.delegate = self
+        
+        // navigationBar title 설정
+        self.title = "동물농장"
     }
 
     
@@ -84,6 +87,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return 100.0
     }
 
+    
+    // 배열에 있는 데이터 DetailViewController에 넘겨주기
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "godetail" {
+            
+//            let dvController = segue.destination as! DetailViewController
+//            dvController.dataLabel = animals[2]
+//            dvController.dataImage = animals[2]
+            
+            
+        } else if segue.identifier == "gocell" {
+            
+            let dcController = segue.destination as! DetailCellViewController
+            let myIndexPath = myTableView.indexPathForSelectedRow
+            let myRow = myIndexPath?.row
+            dcController.cellData = animals[myRow!]
+            dcController.cellImage = animals[myRow!]
+            
+            
+        } else if segue.identifier == "godetailcell" {
+            
+            let dtController = segue.destination as! myTableViewController
+            dtController.detailAnimals = animals[2]
+            dtController.detailYear = year[2]
+            
+            
+        } else {
+            fatalError()
+        }
+    }
+    
     
     
 }
