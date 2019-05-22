@@ -38,8 +38,9 @@ class myTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
+        /*
         switch indexPath.row {
+            
             case 0 :
                 let cell = tableView.dequeueReusableCell(withIdentifier: "firstcell", for: indexPath)
                 cell.textLabel?.text = detailAnimals
@@ -50,6 +51,21 @@ class myTableViewController: UITableViewController {
                 return cell
             default :
                 fatalError()
+        */
+            
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "firstcell", for: indexPath)
+                cell.textLabel?.text = detailAnimals
+                return cell
+            
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "secondcell", for: indexPath)
+                cell.textLabel?.text = detailYear
+                return cell
+            
+            } else {
+                fatalError()
+            }
         }
         
         
