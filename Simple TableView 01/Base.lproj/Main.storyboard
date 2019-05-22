@@ -46,7 +46,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="41g-Rh-mtM" kind="show" id="lGW-gQ-Qdc"/>
+                                            <segue destination="41g-Rh-mtM" kind="show" id="F3o-6O-41V"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

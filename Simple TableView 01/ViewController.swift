@@ -109,8 +109,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else if segue.identifier == "godetailcell" {
             
             let dtController = segue.destination as! myTableViewController
-            dtController.detailAnimals = animals[2]
-            dtController.detailYear = year[2]
+            let myIndexPath = myTableView.indexPathForSelectedRow
+            let myRow = myIndexPath?.row
+            dtController.detailAnimals = animals[myRow!]
+            dtController.detailYear = year[myRow!]
             
             
         } else {

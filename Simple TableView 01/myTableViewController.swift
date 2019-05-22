@@ -32,13 +32,13 @@ class myTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        /*
+        
         switch indexPath.row {
             
             case 0 :
@@ -51,8 +51,8 @@ class myTableViewController: UITableViewController {
                 return cell
             default :
                 fatalError()
-        */
-            
+ 
+        /*
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "firstcell", for: indexPath)
                 cell.textLabel?.text = detailAnimals
@@ -66,6 +66,7 @@ class myTableViewController: UITableViewController {
             } else {
                 fatalError()
             }
+         */
         }
         
         
@@ -76,7 +77,7 @@ class myTableViewController: UITableViewController {
     }
     
 
-    
+
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
